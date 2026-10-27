@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyMate helps students plan study tasks and track progress.">
+  <title>StudyMate | Student Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">StudyMate<span>.</span></a>
+    <span class="tagline">Plan better. Learn smarter.</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+        <h1>Make today count.</h1>
+        <p>Small study sessions lead to big achievements.</p>
+      </div>
+      <div class="today-card">
+        <span>Today's date</span>
+        <strong id="today"></strong>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Study statistics">
+      <article class="stat-card">
+        <span>Total tasks</span>
+        <strong id="totalTasks">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Completed</span>
+        <strong id="completedTasks">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Pending</span>
+        <strong id="pendingTasks">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Progress</span>
+        <strong id="progressText">0%</strong>
+        <div class="progress-track">
+          <div id="progressBar" class="progress-fill"></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Add a study task</h2>
+      <p class="muted">Choose a subject, set a date, and get started.</p>
+
+      <form id="taskForm">
+        <div class="form-grid">
+          <label>
+            Task name
+            <input id="taskName" type="text"
+              placeholder="e.g. Revise Python functions"
+              maxlength="100" required>
+          </label>
+
+          <label>
+            Subject
+            <select id="subject" required>
+              <option value="Python">Python</option>
+              <option value="PHP">PHP</option>
+              <option value="Mathematics-II">Mathematics-II</option>
+              <option value="Artificial Intelligence">Artificial Intelligence</option>
+              <option value="Cloud Computing">Cloud Computing</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            Study date
+            <input id="taskDate" type="date" required>
+          </label>
+
+          <label>
+            Priority
+            <select id="priority">
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Low">Low</option>
+            </select>
+          </label>
+        </div>
+
+        <button class="primary-btn" type="submit">+ Add Task</button>
+        <p id="formMessage" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="task-heading">
+        <div>
+          <h2>My study tasks</h2>
+          <p class="muted">Keep moving forward, one task at a time.</p>
+        </div>
+
+        <label class="filter-label">
+          Show
+          <select id="taskFilter">
+            <option value="all">All tasks</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="taskList" class="task-list"></div>
+      <p id="emptyMessage" class="empty-message">
+        No tasks yet. Add your first study task above!
+      </p>
+    </section>
+
+    <footer>
+      <p>Built with HTML, CSS and JavaScript · StudyMate</p>
+    </footer>
+  </main>
+</body>
+</html>
